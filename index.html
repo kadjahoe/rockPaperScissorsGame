@@ -1,0 +1,163 @@
+<!DOCTYPE html5>
+<html>
+	<head>
+		<title>Rock, Paper, Scissor Game</title>
+		<meta charset="utf-8">
+   		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+		<!-- Latest compiled JavaScript -->
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<script src="https://use.fontawesome.com/c8fc92ea04.js"></script>
+		<link rel="stylesheet" type="text/css" href="styles.css"/>
+		<script  type="text/javascript" src="js/game.js"></script>
+	</head>
+	<body>
+		<!-- Navbar Begins -->
+		<nav class="navbar navbar-default">
+			<div class="container">
+		    	<div class="navbar-header">
+		      		<a class="navbar-brand" href="www.kadesignswow.com/rockPaperScissorGame/index.html">Katherine Adjahoe</a>
+		    	</div>
+		   		<div class="page-header" id="myNavbar">
+		   		<!-- Title of game -->
+		   		The Best Rock, Paper, Scissors Game Ever!
+		   		</div>
+		  	</div>
+		</nav>
+		<!-- Navbar Ends -->
+		<!-- Game is displayed in this container-->
+		<div class="container-fluid bg-2 text-center">
+			<h2>Want to give it a try?</h2>
+			<!-- Explains how the game works -->
+			<p>You have 3 secs to make a choice.<br/> There is 3 rounds per game.<br/> Have fun!</p>
+			<!-- Displays what round it is from the javascript-->
+		  	<h3 id="round"></h3>
+		  	<!-- Displays the timer from the javascript -->
+		   	<h3  id="timer"></h3>
+		   	<!-- Explains how to start game -->
+		   	<h1 id="instruction">Press Start to Begin Timer</h1>
+		   	<!-- Displays if player win or lose -->
+		  	<h1 id="resultBox"></h1>
+		  	<!-- Choices with icons for player and computer -->
+		 	<div class="btn-group btn-group-justified" role="group" aria-label="...">
+		  		<div class="container plays playsContainer">
+		  	 		<div class = "row">
+		  	 			<div class="col-xs-12 col-md-12">
+		  	 				<!-- Heading for player's choice -->
+		  	 				<p class="playersChoices hide">You chose:</p>
+		  	 				<hr>
+		  	 				<!-- player's Rock choice -->
+							<div class="btn-group" role="group">
+							   <label class="player1 hide">
+							   		<span class="fa-stack fa-lg">
+							   			<i class="fa fa-circle fa-stack-2x"></i>
+							   			<i class="fa fa-hand-rock-o fa-stack-1x fa-inverse" aria-hidden="true"></i>
+							   		</span>
+							   		<h4 class="selection">Rock</h4>
+							   </label>
+							   <!-- player's Paper choice -->
+							   <label class="player2 hide">
+							   		<span class="fa-stack fa-lg">
+							   			<i class="fa fa-circle fa-stack-2x"></i>
+							   			<i class="fa fa-hand-paper-o fa-stack-1x fa-inverse" aria-hidden="true"></i>
+							   		</span>
+							   		<h4 class="selection">Paper</h4>
+							   	</label>
+							   	<!-- player's Scissors choice -->
+							    <label class="player3 hide">
+							    	<span class="fa-stack fa-lg">
+							    		<i class="fa fa-circle fa-stack-2x"></i>
+							    		<i class="fa fa-hand-scissors-o fa-stack-1x fa-inverse" aria-hidden="true"></i>
+							    	</span>
+							    	<h4 class="selection">Scissors</h4>
+							    </label>
+							</div>
+					 	</div>
+					</div><!-- end of player choices -->
+					<div class="row">	
+						<div class="col-xs-12 col-md-12 comp">
+							<!-- Heading for computer's choice -->	 
+						  	<p class="computerChoices hide">Computer chose:</p>
+						  	<hr>
+						  	<!-- computer's Rock choice -->
+						    <div class="btn-group" role="group">
+								<label class="computer1 hide">
+									<span class="fa-stack fa-lg">
+										<i class="fa fa-circle fa-stack-2x"></i>
+										<i class="fa fa-hand-rock-o fa-stack-1x fa-inverse" aria-hidden="true"></i>
+									</span>
+									<h4 class="selection">Rock</h4>
+								</label>
+								<!-- computer's Paper choice -->
+							 	<label class="computer2 hide">
+							 		<span class="fa-stack fa-lg">
+							 			<i class="fa fa-circle fa-stack-2x"></i>
+							 			<i class="fa fa-hand-paper-o fa-stack-1x fa-inverse" aria-hidden="true"></i>
+							 			</span>
+							 			<h4 class="selection">Paper</h4>
+							 	</label>
+							 	<!-- Computer's Scissors choice -->
+							 	<label class="computer3 hide">
+							 		<span class="fa-stack fa-lg">
+							 			<i class="fa fa-circle fa-stack-2x"></i>
+							 			<i class="fa fa-hand-scissors-o fa-stack-1x fa-inverse" aria-hidden="true"></i>
+							 		</span>
+							 		<h4 class="selection">Scissor</h4>
+							 	</label>
+						  	</div>
+					  	</div>
+				  	</div><!-- end of computer choices -->
+				</div>
+			</div>
+		</div>
+		<!-- Game's choices -->
+		<div class="container-fluid bg-3 text-center">
+			<form role ="form">
+				<div class="choices choicesContainer hide" role="group" aria-label="...">
+					<!-- Rock -->
+					<div class="btn-group" role="group">
+						<label class="radio-inline">
+							<input id="rad1" type="radio" name="optradio" onclick="stop(time,1)">
+							Rock
+						</label>
+					</div>
+					<!-- Paper -->
+					<div class="btn-group" role="group">
+						<label class="radio-inline">
+							<input id="rad2" type="radio" name="optradio" onclick="stop(time,2)">
+							Paper
+						</label>
+					</div>
+					<!-- Scissors -->
+					<div class="btn-group" role="group">
+						<label class="radio-inline">
+							<input id="rad3" type="radio" name="optradio" onclick="stop(time,3)">
+							Scissor
+						</label>
+					</div>
+				</div>
+			</form>
+		</div>
+		<!-- Start and Play Again buttons -->
+		<div class="container-fluid bg-4 text-center">
+			<!-- Start button -->
+			<a class="start btn btn-default btn-lg" onclick="start()"><span class="glyphicon glyphicon-time clock-icon"></span>Start</a>
+			<!-- Play Again -->
+			<a class="playAgain hide btn btn-default btn-lg" onclick="reset()"><span class="glyphicon glyphicon-repeat clock-icon"></span>Play Again</a>
+		</div>
+		<!-- Footer Begins-->	
+		<footer class="container-fluid bg-5 text-center">
+		  <p>Rock, Paper, Scissors game Created by 
+		  	<a href="www.kadesignswow.com">
+		  	Katherine Adjahoe 
+		  	</a>
+		  </p> 
+		</footer>
+		<!-- end of Game-->
+	</body>
+</html>
