@@ -1,4 +1,4 @@
-/*
+/***************************************************************
 
 The Best Rock, Paper, Scissors Game ever!
 
@@ -10,9 +10,10 @@ you can reach me on my blog www.kadesignswow.com or on youtube
 at youtube/katherineadjahoe
 
 Also check it out on gitHub as well
+https://github.com/kadjahoe/rockPaperScissorsGame.git
 
+***************************************************************/
 
-*/
 var time = 4;
 var playerChoice = false;
 var hourGlass;
